@@ -1,5 +1,6 @@
 :root {
-	--dark: #333333;
+	--dark: #222222;
+	--light-dark: #333333;
 	--light: #ffffff;
 }
 
@@ -13,12 +14,30 @@
 	align-items: center;
 }
 
-.container {
+.main-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
 }
 
 .app-title {
 	color: var(--light);
+}
+
+.calculator-container {
+	background-color: var(--light-dark);
+	display: grid;
+	width: 12rem;
+}
+
+.numpad-container {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr;
+}
+
+.calculator-output {
+	text-align: right;
+	margin: 1rem;
 }

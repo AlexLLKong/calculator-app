@@ -1,10 +1,11 @@
 import React from 'react'
-import './App.css'
+import CalculatorContainer from '../Containers/CalculatorContainer'
 
-function Container() {
+function MainContainer() {
 	return (
-		<div className="container">
+		<div className="main-container">
 			<h1 className="app-title">Calculator App</h1>
+			<CalculatorContainer />
 		</div>
 	)
 }
@@ -12,7 +13,7 @@ function Container() {
 export default function Wrapper() {
 	return (
 		<div className="wrapper">
-			<Container />
+			<MainContainer />
 		</div>
 	)
 }
