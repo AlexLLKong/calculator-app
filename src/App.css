@@ -28,7 +28,6 @@
 .calculator-container {
 	background-color: var(--light-dark);
 	display: grid;
-	width: 12rem;
 }
 
 .numpad-container {
@@ -36,8 +35,32 @@
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr 1fr;
 }
-
-.calculator-output {
-	text-align: right;
+.display {
+	width: 350px;
+}
+.output {
 	margin: 1rem;
+}
+.output h2 {
+	text-align: right;
+	margin: 0 1rem 1rem 1rem;
+	color: var(--light);
+}
+.expression {
+	overflow: auto;
+	margin: 0 1rem;
+}
+.expression p {
+	text-align: right;
+	margin-right: 1rem;
+	color: var(--light);
+}
+.operators {
+	display: flex;
+	flex-wrap: wrap;
+	width: 17rem;
+	margin: 1rem 0;
+}
+.operators button {
+	font-size: large;
 }
