@@ -12,6 +12,7 @@ function generateOperators(props) {
 					handlers: {
 						operatorClick: props.value.handlers.operatorClick,
 					},
+					params: { ...props.value.params },
 					op: ops[i],
 				}}
 			/>

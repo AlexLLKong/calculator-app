@@ -9,12 +9,17 @@ const opDictionary = {
 export default function OperatorButton(props) {
 	return (
 		<button
+			className="btn"
 			onClick={e => {
 				e.preventDefault()
-				props.value.handlers.operatorClick(props.value.op)
+				props.value.handlers.operatorClick(
+					props.value.op,
+					props.value.params.expression,
+					props.value.params.setExpression
+				)
 			}}
 		>
-			{opDictionary[props.value.op]}
+			<strong>{opDictionary[props.value.op]}</strong>
 		</button>
 	)
 }

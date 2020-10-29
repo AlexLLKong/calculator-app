@@ -28,3 +28,12 @@ In your development directory or wherever:
 To start:
 
 `npm start`
+
+## Planned Features
+
+-   Customizable layout
+-   Unit Conversions
+
+## Test Coverage
+
+Coming soon

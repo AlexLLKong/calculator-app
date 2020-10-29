@@ -3,7 +3,9 @@
 	--light-dark: #333333;
 	--light: #ffffff;
 }
-
+body {
+	background-color: var(--dark);
+}
 .wrapper {
 	width: 100%;
 	padding: 0;
@@ -28,43 +30,49 @@
 
 .calculator-container {
 	background-color: var(--light-dark);
-	display: grid;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 .numpad-container {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr 1fr;
+	margin-bottom: 1rem;
+	gap: 1rem 1rem;
 }
+
 .display {
-	width: 350px;
+	width: 250px;
+	margin: 0 1rem;
 }
 .output {
-	margin: 1rem;
+	margin: 0.2rem;
 }
 .output h2 {
 	text-align: right;
-	margin: 0 1rem 1rem 1rem;
+	/* margin: 0 1rem 1rem 1rem; */
 	color: var(--light);
 }
 .expression {
 	overflow: auto;
-	margin: 0 1rem;
+	margin: 0;
 }
 .expression p {
 	text-align: right;
-	margin-right: 1rem;
+	/* margin-right: 1rem; */
 	color: var(--light);
 }
 .operators {
 	display: flex;
+	justify-content: space-evenly;
 	flex-wrap: wrap;
 	width: 17rem;
-	margin: 1rem 0;
+	margin-bottom: 1rem;
 }
-.operators button {
-	font-size: large;
-}
+
 .link-list-container {
 	justify-self: flex-start;
 }
@@ -78,5 +86,14 @@
 }
 .link-list-container ul li a div {
 	font-size: 1.5rem;
+	color: var(--light);
+}
+.btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: large;
+	border: none;
+	background-color: var(--light-dark);
 	color: var(--light);
 }

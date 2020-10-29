@@ -2,38 +2,25 @@ import React, { useState, useEffect } from 'react'
 import Numpad from '../Components/Numpad'
 import Operators from '../Components/Operators'
 import Display from '../Components/Display'
+import EventHandlers from '../Util/EventHandlers'
 const math = require('mathjs')
+const {
+	HandleNumpadButtonClick,
+	HandleDecimalClick,
+	HandleOperatorClick,
+	HandleClearButtonClick,
+	HandleBackspaceClick,
+} = EventHandlers()
 export default function CalculatorContainer() {
-	// Event Handlers
-	function HandleNumpadButtonClick(value) {
-		setExpression(
-			(expression =
-				expression === '_'
-					? `${value}`
-					: (expression = `${expression}${value}`))
-		)
-	}
-	function HandleOperatorClick(op) {
-		const ops = ['*', '/', '+', '-']
-		if (expression === '_') return
-		else if (expression.length > 0)
-			if (!ops.includes(expression[expression.length - 1]))
-				setExpression((expression = `${expression}${op}`))
-	}
-	function HandleClearButtonClick() {
-		setOutput('0')
-		setExpression('_')
-	}
-
 	let [output, setOutput] = useState('0')
-	let [expression, setExpression] = useState('_')
+	let [expression, setExpression] = useState('0')
 
 	useEffect(() => {
 		try {
 			let result = math.evaluate(expression)
 			if (result === undefined) result = '0'
 			setOutput(output => {
-				return result
+				return math.format(result, { precision: 12 })
 			})
 		} catch (err) {}
 	}, [expression])
@@ -50,6 +37,10 @@ export default function CalculatorContainer() {
 					handlers: {
 						operatorClick: HandleOperatorClick,
 					},
+					params: {
+						expression: expression,
+						setExpression: setExpression,
+					},
 				}}
 			/>
 			<Numpad
@@ -57,6 +48,14 @@ export default function CalculatorContainer() {
 					handlers: {
 						numpadClick: HandleNumpadButtonClick,
 						clearOutput: HandleClearButtonClick,
+						decimalClick: HandleDecimalClick,
+						backspaceClick: HandleBackspaceClick,
+					},
+					params: {
+						expression: expression,
+						setExpression: setExpression,
+						output: output,
+						setOutput: setOutput,
 					},
 				}}
 			/>
