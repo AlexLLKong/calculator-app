@@ -10,6 +10,7 @@
 	height: 100vh;
 	background-color: var(--dark);
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
@@ -63,4 +64,19 @@
 }
 .operators button {
 	font-size: large;
+}
+.link-list-container {
+	justify-self: flex-start;
+}
+.link-list-container ul {
+	list-style-type: none;
+	background-color: var(--dark);
+	padding: 0;
+}
+.link-list-container ul li a {
+	text-decoration: none;
+}
+.link-list-container ul li a div {
+	font-size: 1.5rem;
+	color: var(--light);
 }
