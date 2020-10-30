@@ -19,7 +19,7 @@ export default function EventHandlers() {
 			setExpression((expression = `${expression}.`))
 	}
 
-	const HandleOperatorClick = (op, expression, setExpression) => {
+	const HandleOperatorClick = ({ op, expression, setExpression }) => {
 		if (op === '-' && !ops.includes(expression[expression.length - 2]))
 			setExpression((expression = `${expression}${op}`))
 		else if (!ops.includes(expression[expression.length - 1]))
@@ -45,6 +45,18 @@ export default function EventHandlers() {
 	}) => {
 		setIsScientificOn((isScientificOn = !isScientificOn))
 	}
+
+	const HandleFunctionClick = ({
+		expression,
+		setExpression,
+		functionSyntax,
+	}) => {
+		setExpression(
+			expression === '0'
+				? `${functionSyntax}(`
+				: `${expression} ${functionSyntax}(`
+		)
+	}
 	return {
 		HandleNumpadButtonClick,
 		HandleDecimalClick,
@@ -52,5 +64,6 @@ export default function EventHandlers() {
 		HandleClearButtonClick,
 		HandleBackspaceClick,
 		HandleScientificCalculatorSelect,
+		HandleFunctionClick,
 	}
 }

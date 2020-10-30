@@ -3,6 +3,7 @@ import CalculatorContainer from './CalculatorContainer'
 import Display from '../Components/Display'
 import CalculatorSelectMenu from '../Components/CalculatorSelectMenu'
 import EventHandlers from '../Util/EventHandlers'
+import ScientificCalculator from './ScientificCalculator'
 const math = require('mathjs')
 
 const { HandleScientificCalculatorSelect } = EventHandlers()
@@ -40,6 +41,14 @@ export default function MainContainer() {
 					value={{
 						expression: expression,
 						outputString: output,
+					}}
+				/>
+				<ScientificCalculator
+					value={{
+						expression: expression,
+						outputString: output,
+						setOutput: setOutput,
+						setExpression: setExpression,
 					}}
 				/>
 				<CalculatorContainer

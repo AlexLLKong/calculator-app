@@ -1,19 +1,23 @@
 import React from 'react'
-import OperatorButton from './OperatorButton'
-
+import SinglePurposeButton from './SinglePurposeButton'
+const opDictionary = {
+	'*': '\u00D7',
+	'/': '\u00F7',
+	'+': '+',
+	'-': '\u2212',
+}
 function generateOperators(props) {
 	const ops = ['*', '/', '+', '-']
 	const retArr = []
 	for (let i = 0; i < 4; i++) {
 		retArr.push(
-			<OperatorButton
+			<SinglePurposeButton
 				key={ops[i]}
 				value={{
-					handlers: {
-						operatorClick: props.value.handlers.operatorClick,
-					},
-					params: { ...props.value.params },
-					op: ops[i],
+					function: props.value.handlers.operatorClick,
+					params: { ...props.value.params, op: ops[i] },
+					name: opDictionary[ops[i]],
+					classes: ['btn'],
 				}}
 			/>
 		)
