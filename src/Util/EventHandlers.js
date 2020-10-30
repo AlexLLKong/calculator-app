@@ -7,27 +7,28 @@ export default function EventHandlers() {
 	const HandleNumpadButtonClick = (value, expression, setExpression) => {
 		setExpression(
 			(expression =
-				expression === '0'
-					? `${value}`
-					: (expression = `${expression}${value}`))
+				expression.length === 1 && expression[0] === '0'
+					? (expression[0] = [`${value}`])
+					: [...expression, value])
 		)
 	}
 
 	const HandleDecimalClick = (expression, setExpression) => {
 		if (!isCurrentNumDecimal(expression))
-			setExpression((expression = `${expression}.`))
+			setExpression((expression = [...expression, '.']))
+		console.log(expression)
 	}
 
 	const HandleOperatorClick = ({ op, expression, setExpression }) => {
 		if (op === '-' && !ops.includes(expression[expression.length - 2]))
-			setExpression((expression = `${expression}${op}`))
+			setExpression((expression = [...expression, op]))
 		else if (!ops.includes(expression[expression.length - 1]))
-			setExpression((expression = `${expression}${op}`))
+			setExpression((expression = [...expression, op]))
 	}
 
 	const HandleClearButtonClick = (setOutput, setExpression) => {
 		setOutput('0')
-		setExpression('0')
+		setExpression(['0'])
 	}
 
 	const HandleBackspaceClick = (expression, setExpression, setOutput) => {
@@ -35,7 +36,7 @@ export default function EventHandlers() {
 			setExpression((expression = expression.slice(0, -1)))
 		else {
 			setOutput('0')
-			setExpression('0')
+			setExpression(['0'])
 		}
 	}
 	const HandleScientificCalculatorSelect = ({
@@ -49,7 +50,7 @@ export default function EventHandlers() {
 		setExpression,
 		char,
 	}) => {
-		setExpression((expression = `${expression}${char}`))
+		setExpression((expression = [...expression, char]))
 	}
 	const HandleFunctionClick = ({
 		expression,
@@ -58,8 +59,8 @@ export default function EventHandlers() {
 	}) => {
 		setExpression(
 			expression === '0'
-				? `${functionSyntax}(`
-				: `${expression} ${functionSyntax}(`
+				? [`${functionSyntax}(`]
+				: [...expression, `${functionSyntax}(`]
 		)
 	}
 	return {

@@ -3,7 +3,7 @@ import React from 'react'
 export default function Expressions(props) {
 	return (
 		<div className="expression">
-			<p>{props.value.expression}</p>
+			<p>{props.value.expression.join('')}</p>
 		</div>
 	)
 }

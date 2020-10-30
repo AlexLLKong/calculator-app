@@ -10,11 +10,11 @@ const { HandleScientificCalculatorSelect } = EventHandlers()
 
 export default function MainContainer() {
 	let [output, setOutput] = useState('0')
-	let [expression, setExpression] = useState('0')
+	let [expression, setExpression] = useState(['0'])
 	let [isScientificOn, setIsScientificOn] = useState(false)
 	useEffect(() => {
 		try {
-			let result = math.evaluate(expression)
+			let result = math.evaluate(expression.join(''))
 			if (result === undefined) result = '0'
 			setOutput(output => {
 				return math.format(result, { precision: 12 })
