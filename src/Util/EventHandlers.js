@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import Helpers from './Helpers'
+const { isCurrentNumDecimal } = Helpers()
 const ops = ['*', '/', '+', '-']
 
 export default function EventHandlers() {
@@ -13,7 +14,8 @@ export default function EventHandlers() {
 	}
 
 	const HandleDecimalClick = (expression, setExpression) => {
-		if (!Helpers.isCurrentNumDecimal(expression))
+		console.log(isCurrentNumDecimal)
+		if (!isCurrentNumDecimal(expression))
 			setExpression((expression = `${expression}.`))
 	}
 
