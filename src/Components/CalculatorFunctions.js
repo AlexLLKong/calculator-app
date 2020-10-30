@@ -21,7 +21,7 @@ function createFunctionButtons(func, functionNames, params, classes) {
 
 export default function CalculatorFunctions(props) {
 	return (
-		<div className={props.value.classes}>
+		<div className={props.value.classes.join(' ')}>
 			{createFunctionButtons(
 				props.value.function,
 				props.value.functionNames,

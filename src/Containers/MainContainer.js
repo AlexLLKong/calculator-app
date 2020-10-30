@@ -43,14 +43,16 @@ export default function MainContainer() {
 						outputString: output,
 					}}
 				/>
-				<ScientificCalculator
-					value={{
-						expression: expression,
-						outputString: output,
-						setOutput: setOutput,
-						setExpression: setExpression,
-					}}
-				/>
+				{isScientificOn && (
+					<ScientificCalculator
+						value={{
+							expression: expression,
+							outputString: output,
+							setOutput: setOutput,
+							setExpression: setExpression,
+						}}
+					/>
+				)}
 				<CalculatorContainer
 					value={{
 						expression: expression,
