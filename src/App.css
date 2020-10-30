@@ -24,12 +24,15 @@ body {
 	flex-direction: column;
 }
 
+.main-container div {
+	background-color: var(--light-dark);
+}
+
 .app-title {
 	color: var(--light);
 }
 
 .calculator-container {
-	background-color: var(--light-dark);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -46,14 +49,13 @@ body {
 
 .display {
 	width: 250px;
-	margin: 0 1rem;
+	margin: 0;
 }
 .output {
-	margin: 0.2rem;
+	margin: 0;
 }
 .output h2 {
 	text-align: right;
-	/* margin: 0 1rem 1rem 1rem; */
 	color: var(--light);
 }
 .expression {
@@ -62,7 +64,6 @@ body {
 }
 .expression p {
 	text-align: right;
-	/* margin-right: 1rem; */
 	color: var(--light);
 }
 .operators {
@@ -96,4 +97,20 @@ body {
 	border: none;
 	background-color: var(--light-dark);
 	color: var(--light);
+}
+
+.btn-select-calculator {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: large;
+	border: none;
+	background-color: var(--dark);
+	color: var(--light);
+}
+
+.select-calculator-menu {
+	display: flex;
+	justify-content: space-evenly;
+	margin-bottom: 1rem;
 }

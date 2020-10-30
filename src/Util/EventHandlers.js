@@ -39,11 +39,18 @@ export default function EventHandlers() {
 			setExpression('0')
 		}
 	}
+	const HandleScientificCalculatorSelect = ({
+		isScientificOn,
+		setIsScientificOn,
+	}) => {
+		setIsScientificOn((isScientificOn = !isScientificOn))
+	}
 	return {
 		HandleNumpadButtonClick,
 		HandleDecimalClick,
 		HandleOperatorClick,
 		HandleClearButtonClick,
 		HandleBackspaceClick,
+		HandleScientificCalculatorSelect,
 	}
 }
