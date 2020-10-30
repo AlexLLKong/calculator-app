@@ -14,7 +14,6 @@ export default function EventHandlers() {
 	}
 
 	const HandleDecimalClick = (expression, setExpression) => {
-		console.log(isCurrentNumDecimal)
 		if (!isCurrentNumDecimal(expression))
 			setExpression((expression = `${expression}.`))
 	}
@@ -45,7 +44,13 @@ export default function EventHandlers() {
 	}) => {
 		setIsScientificOn((isScientificOn = !isScientificOn))
 	}
-
+	const HandleNoRulesCharacterClick = ({
+		expression,
+		setExpression,
+		char,
+	}) => {
+		setExpression((expression = `${expression}${char}`))
+	}
 	const HandleFunctionClick = ({
 		expression,
 		setExpression,
@@ -64,6 +69,7 @@ export default function EventHandlers() {
 		HandleClearButtonClick,
 		HandleBackspaceClick,
 		HandleScientificCalculatorSelect,
+		HandleNoRulesCharacterClick,
 		HandleFunctionClick,
 	}
 }

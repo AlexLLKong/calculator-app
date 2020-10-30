@@ -9,6 +9,7 @@ const {
 	HandleOperatorClick,
 	HandleClearButtonClick,
 	HandleBackspaceClick,
+	HandleNoRulesCharacterClick,
 } = EventHandlers()
 
 export default function CalculatorContainer(props) {
@@ -32,6 +33,7 @@ export default function CalculatorContainer(props) {
 						clearOutput: HandleClearButtonClick,
 						decimalClick: HandleDecimalClick,
 						backspaceClick: HandleBackspaceClick,
+						noRulesClick: HandleNoRulesCharacterClick,
 					},
 					params: {
 						expression: props.value.expression,
@@ -39,6 +41,7 @@ export default function CalculatorContainer(props) {
 						output: props.value.output,
 						setOutput: props.value.setOutput,
 					},
+					classes: ['btn'],
 				}}
 			/>
 		</div>

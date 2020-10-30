@@ -34,6 +34,17 @@ To start:
 -   Customizable layout
 -   Unit Conversions
 
+## Adding buttons to the calculator
+
+More of a note to self but anyways:
+
+1.  If we need rules to guard against user input mistakes then:
+
+    -   Add an Event Handler to EventHandlers.js that facilitates the rules we need
+    -   eg. We don't want the user to be able to do something like 8.88.8 so HandleDecimalClick is a thing
+
+2.  The component we should use most of the time is SinglePurposeButton.js
+
 ## Test Coverage
 
 Coming soon

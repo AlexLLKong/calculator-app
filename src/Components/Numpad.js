@@ -2,6 +2,7 @@ import NumpadButton from './NumpadButton'
 import ClearOutputButton from './ClearOutputButton'
 import DecimalButton from './DecimalButton'
 import BackspaceButton from './BackspaceButton'
+import SinglePurposeButton from './SinglePurposeButton'
 function generateNumpadDigits(props) {
 	const digits = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0]
 	const retArr = []
@@ -49,6 +50,28 @@ function generateNumpadDigits(props) {
 					clearOutput: props.value.handlers.clearOutput,
 				},
 				params: { ...props.value.params },
+			}}
+		/>
+	)
+	retArr.push(
+		<SinglePurposeButton
+			key="openBracket"
+			value={{
+				function: props.value.handlers.noRulesClick,
+				params: { ...props.value.params, char: '(' },
+				name: '(',
+				classes: [...props.value.classes],
+			}}
+		/>
+	)
+	retArr.push(
+		<SinglePurposeButton
+			key="closeBracket"
+			value={{
+				function: props.value.handlers.noRulesClick,
+				params: { ...props.value.params, char: ')' },
+				name: ')',
+				classes: [...props.value.classes],
 			}}
 		/>
 	)
