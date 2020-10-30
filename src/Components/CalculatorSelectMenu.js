@@ -7,7 +7,7 @@ export default function CalculatorSelectMenu(props) {
 			<CalculatorButton
 				value={{
 					handler: props.value.handlers.selectScientific,
-					name: 'Scientific',
+					name: 'Trig',
 					params: { ...props.value.params },
 				}}
 			/>
