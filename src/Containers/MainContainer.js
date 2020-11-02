@@ -3,9 +3,10 @@ import CalculatorContainer from './CalculatorContainer'
 import Display from '../Components/Display'
 import CalculatorSelectMenu from '../Components/CalculatorSelectMenu'
 import EventHandlers from '../Util/EventHandlers'
+import Helpers from '../Util/Helpers'
 import ScientificCalculator from './ScientificCalculator'
 const math = require('mathjs')
-
+const { addCommas } = Helpers()
 const { HandleScientificCalculatorSelect } = EventHandlers()
 
 export default function MainContainer() {
@@ -17,7 +18,13 @@ export default function MainContainer() {
 			let result = math.evaluate(expression.join(''))
 			if (result === undefined) result = '0'
 			setOutput(output => {
-				return math.format(result, { precision: 12 })
+				return addCommas(
+					math.format(result, {
+						precision: 12,
+						lowerExp: -12,
+						upperExp: 12,
+					})
+				)
 			})
 		} catch (err) {}
 	}, [expression])
