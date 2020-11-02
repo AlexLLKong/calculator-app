@@ -44,7 +44,3 @@ More of a note to self but anyways:
     -   eg. We don't want the user to be able to do something like 8.88.8 so HandleDecimalClick is a thing
 
 2.  The component we should use most of the time is SinglePurposeButton.js
-
-## Test Coverage
-
-Coming soon
