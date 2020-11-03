@@ -5,7 +5,7 @@ const { isCurrentNumDecimal, removeCommas } = Helpers()
 const ops = ['*', '/', '+', '-']
 
 export default function EventHandlers() {
-	const HandleNumpadButtonClick = (value, expression, setExpression) => {
+	const HandleNumpadButtonClick = ({ value, expression, setExpression }) => {
 		setExpression(
 			(expression =
 				expression.length === 1 && expression[0] === '0'
@@ -14,10 +14,9 @@ export default function EventHandlers() {
 		)
 	}
 
-	const HandleDecimalClick = (expression, setExpression) => {
+	const HandleDecimalClick = ({ expression, setExpression }) => {
 		if (!isCurrentNumDecimal(expression))
 			setExpression((expression = [...expression, '.']))
-		console.log(expression)
 	}
 
 	const HandleOperatorClick = ({ op, expression, setExpression }) => {
@@ -27,12 +26,12 @@ export default function EventHandlers() {
 			setExpression((expression = [...expression, op]))
 	}
 
-	const HandleClearButtonClick = (setOutput, setExpression) => {
+	const HandleClearButtonClick = ({ setOutput, setExpression }) => {
 		setOutput('0')
 		setExpression(['0'])
 	}
 
-	const HandleBackspaceClick = (expression, setExpression, setOutput) => {
+	const HandleBackspaceClick = ({ expression, setExpression, setOutput }) => {
 		if (expression.length > 1)
 			setExpression((expression = expression.slice(0, -1)))
 		else {

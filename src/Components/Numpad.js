@@ -1,7 +1,3 @@
-import NumpadButton from './NumpadButton'
-import ClearOutputButton from './ClearOutputButton'
-import DecimalButton from './DecimalButton'
-import BackspaceButton from './BackspaceButton'
 import SinglePurposeButton from './SinglePurposeButton'
 
 function generateNumpadDigits(props) {
@@ -23,20 +19,19 @@ function generateNumpadDigits(props) {
 						function: props.value.handlers.operatorClick,
 						params: { ...props.value.params, op: digits[i] },
 						name: opDictionary[digits[i]],
-						classes: ['btn'],
+						classes: [...props.value.classes],
 					}}
 				/>
 			)
 		else {
 			retArr.push(
-				<NumpadButton
+				<SinglePurposeButton
 					key={digits[i]}
 					value={{
-						handlers: {
-							numpadClick: props.value.handlers.numpadClick,
-						},
-						params: { ...props.value.params },
-						num: digits[i],
+						function: props.value.handlers.numpadClick,
+						params: { ...props.value.params, value: digits[i] },
+						name: digits[i],
+						classes: [...props.value.classes],
 					}}
 				/>
 			)
@@ -55,14 +50,13 @@ function generateNumpadDigits(props) {
 		/>
 	)
 	retArr.push(
-		<NumpadButton
-			key={'0'}
+		<SinglePurposeButton
+			key="0"
 			value={{
-				handlers: {
-					numpadClick: props.value.handlers.numpadClick,
-				},
-				params: { ...props.value.params },
-				num: '0',
+				function: props.value.handlers.numpadClick,
+				params: { ...props.value.params, value: '0' },
+				name: '0',
+				classes: [...props.value.classes],
 			}}
 		/>
 	)
@@ -79,56 +73,56 @@ function generateNumpadDigits(props) {
 	)
 	retArr.push(
 		<SinglePurposeButton
-			key={'-'}
+			key="-"
 			value={{
 				function: props.value.handlers.operatorClick,
 				params: { ...props.value.params, op: '-' },
 				name: opDictionary['-'],
-				classes: ['btn'],
-			}}
-		/>
-	)
-	retArr.push(
-		<ClearOutputButton
-			key="clear"
-			value={{
-				handlers: {
-					clearOutput: props.value.handlers.clearOutput,
-				},
-				params: { ...props.value.params },
-			}}
-		/>
-	)
-	retArr.push(
-		<BackspaceButton
-			key="backspace"
-			value={{
-				handlers: {
-					backspaceClick: props.value.handlers.backspaceClick,
-				},
-				params: { ...props.value.params },
-			}}
-		/>
-	)
-	retArr.push(
-		<DecimalButton
-			key="decimal"
-			value={{
-				handlers: {
-					decimalClick: props.value.handlers.decimalClick,
-				},
-				params: { ...props.value.params },
+				classes: [...props.value.classes],
 			}}
 		/>
 	)
 	retArr.push(
 		<SinglePurposeButton
-			key={'='}
+			key="clear"
+			value={{
+				function: props.value.handlers.clearOutput,
+				params: { ...props.value.params },
+				name: 'Clr',
+				classes: [...props.value.classes],
+			}}
+		/>
+	)
+	retArr.push(
+		<SinglePurposeButton
+			key="backspace"
+			value={{
+				function: props.value.handlers.backspaceClick,
+				params: { ...props.value.params },
+				name: <i className="fas fa-backspace"></i>,
+				classes: [...props.value.classes],
+			}}
+		/>
+	)
+	retArr.push(
+		<SinglePurposeButton
+			key="."
+			value={{
+				function: props.value.handlers.decimalClick,
+				params: { ...props.value.params },
+				name: '.',
+				classes: [...props.value.classes],
+			}}
+		/>
+	)
+	retArr.push(
+		<SinglePurposeButton
+			key="="
 			value={{
 				function: props.value.handlers.equalsClick,
 				params: { ...props.value.params },
 				name: '=',
-				classes: ['btn'],
+				classes: [...props.value.classes],
 			}}
 		/>
 	)
