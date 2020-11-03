@@ -98,7 +98,10 @@ body {
 	width: 4rem;
 	height: 4rem;
 }
-
+.btn:active {
+	background-color: var(--light);
+	color: var(--light-dark);
+}
 .btn-select-calculator {
 	display: flex;
 	justify-content: center;
@@ -108,7 +111,10 @@ body {
 	background-color: var(--dark);
 	color: var(--light);
 }
-
+.btn-select-calculator:active {
+	background-color: var(--light);
+	color: var(--dark);
+}
 .select-calculator-menu {
 	display: flex;
 	justify-content: space-evenly;

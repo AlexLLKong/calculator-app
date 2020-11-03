@@ -24,7 +24,6 @@ export default function Helpers() {
 
 	function removeCommas(str) {
 		let ret = str.replace(/,/g, '')
-		console.log(ret)
 		return ret
 	}
 
