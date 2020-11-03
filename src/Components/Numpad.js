@@ -64,7 +64,7 @@ function generateNumpadDigits(props) {
 		<SinglePurposeButton
 			key="closeBracket"
 			value={{
-				function: props.value.handlers.noRulesClick,
+				function: props.value.handlers.closeBracketClick,
 				params: { ...props.value.params, char: ')' },
 				name: ')',
 				classes: [...props.value.classes],

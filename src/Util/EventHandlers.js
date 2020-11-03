@@ -1,7 +1,11 @@
 /* eslint-disable no-unused-vars */
 import Helpers from './Helpers'
 const math = require('mathjs')
-const { isCurrentNumDecimal, removeCommas } = Helpers()
+const {
+	isCurrentNumDecimal,
+	removeCommas,
+	moreOpenBracketsThanClosed,
+} = Helpers()
 const ops = ['*', '/', '+', '-']
 
 export default function EventHandlers() {
@@ -20,9 +24,20 @@ export default function EventHandlers() {
 	}
 
 	const HandleOperatorClick = ({ op, expression, setExpression }) => {
-		if (op === '-' && !ops.includes(expression[expression.length - 2]))
+		if (op === '-' && expression.length === 1 && expression[0] === '0')
+			setExpression((expression = [op]))
+		else if (
+			ops.includes(expression[expression.length - 1]) &&
+			!ops.includes(expression[expression.length - 2]) &&
+			op === '-'
+		)
 			setExpression((expression = [...expression, op]))
-		else if (!ops.includes(expression[expression.length - 1]))
+		else if (
+			!ops.includes(expression[expression.length - 1]) &&
+			expression[expression.length - 1] !== '('
+		)
+			setExpression((expression = [...expression, op]))
+		else if (expression[expression.length - 1] === '(' && op === '-')
 			setExpression((expression = [...expression, op]))
 	}
 
@@ -50,7 +65,11 @@ export default function EventHandlers() {
 		setExpression,
 		char,
 	}) => {
-		setExpression((expression = [...expression, char]))
+		setExpression(
+			expression.length === 1 && expression[0] === '0'
+				? (expression[0] = [`${char}`])
+				: [...expression, `${char}`]
+		)
 	}
 	const HandleFunctionClick = ({
 		expression,
@@ -58,8 +77,8 @@ export default function EventHandlers() {
 		functionSyntax,
 	}) => {
 		setExpression(
-			expression === '0'
-				? [`${functionSyntax}(`]
+			expression.length === 1 && expression[0] === '0'
+				? (expression[0] = [`${functionSyntax}(`])
 				: [...expression, `${functionSyntax}(`]
 		)
 	}
@@ -78,6 +97,15 @@ export default function EventHandlers() {
 		)
 		setOutput('0')
 	}
+
+	const HandleCloseBracketClick = ({ expression, setExpression }) => {
+		if (
+			!ops.includes(expression[expression.length - 1]) &&
+			expression.length > 1 &&
+			moreOpenBracketsThanClosed(expression)
+		)
+			setExpression((expression = [...expression, ')']))
+	}
 	return {
 		HandleNumpadButtonClick,
 		HandleDecimalClick,
@@ -88,5 +116,6 @@ export default function EventHandlers() {
 		HandleNoRulesCharacterClick,
 		HandleFunctionClick,
 		HandleEqualsClick,
+		HandleCloseBracketClick,
 	}
 }

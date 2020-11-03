@@ -10,6 +10,7 @@ const {
 	HandleBackspaceClick,
 	HandleNoRulesCharacterClick,
 	HandleEqualsClick,
+	HandleCloseBracketClick,
 } = EventHandlers()
 
 export default function CalculatorContainer(props) {
@@ -25,6 +26,7 @@ export default function CalculatorContainer(props) {
 						noRulesClick: HandleNoRulesCharacterClick,
 						operatorClick: HandleOperatorClick,
 						equalsClick: HandleEqualsClick,
+						closeBracketClick: HandleCloseBracketClick,
 					},
 					params: {
 						expression: props.value.expression,

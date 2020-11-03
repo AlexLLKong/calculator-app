@@ -27,9 +27,20 @@ export default function Helpers() {
 		console.log(ret)
 		return ret
 	}
+
+	function moreOpenBracketsThanClosed(str) {
+		let balance = 0
+		for (let i = 0; i < str.length; i++) {
+			if (str[i] === '(') balance++
+			else if (str[i] === ')') balance--
+		}
+		if (balance > 0) return true
+		return false
+	}
 	return {
 		isCurrentNumDecimal,
 		addCommas,
 		removeCommas,
+		moreOpenBracketsThanClosed,
 	}
 }
