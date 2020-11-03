@@ -14,7 +14,7 @@ export default function EventHandlers() {
 			(expression =
 				expression.length === 1 && expression[0] === '0'
 					? (expression[0] = [`${value}`])
-					: [...expression, value])
+					: [...expression, `${value}`])
 		)
 	}
 

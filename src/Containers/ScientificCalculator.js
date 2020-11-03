@@ -7,7 +7,16 @@ export default function ScientificCalculator(props) {
 		<CalculatorFunctions
 			value={{
 				function: HandleFunctionClick,
-				functionNames: ['sin', 'cos', 'tan'],
+				functionNames: [
+					'sin',
+					'cos',
+					'tan',
+					'asin',
+					'acos',
+					'atan',
+					'log',
+					'ln',
+				],
 				params: { ...props.value },
 				classes: ['functions'],
 			}}

@@ -28,9 +28,10 @@ export default function Helpers() {
 	}
 
 	function moreOpenBracketsThanClosed(str) {
+		console.log(str)
 		let balance = 0
 		for (let i = 0; i < str.length; i++) {
-			if (str[i] === '(') balance++
+			if (str[i].includes('(')) balance++
 			else if (str[i] === ')') balance--
 		}
 		if (balance > 0) return true
