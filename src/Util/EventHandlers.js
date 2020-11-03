@@ -106,6 +106,9 @@ export default function EventHandlers() {
 		)
 			setExpression((expression = [...expression, ')']))
 	}
+	const HandleCopyToClipboardClick = ({ output }) => {
+		navigator.clipboard.writeText(output)
+	}
 	return {
 		HandleNumpadButtonClick,
 		HandleDecimalClick,
@@ -117,5 +120,6 @@ export default function EventHandlers() {
 		HandleFunctionClick,
 		HandleEqualsClick,
 		HandleCloseBracketClick,
+		HandleCopyToClipboardClick,
 	}
 }

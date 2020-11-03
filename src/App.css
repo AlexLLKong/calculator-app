@@ -30,7 +30,12 @@ body {
 .app-title {
 	color: var(--light);
 }
-
+.util-button-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+}
 .calculator-container {
 	display: flex;
 	justify-content: center;
@@ -48,11 +53,12 @@ body {
 .display {
 	display: flex;
 	flex-direction: column;
-	width: 250px;
-	margin: 0 1rem;
+	max-width: 256px;
+	width: 100%;
+	margin: 0;
 }
 .output {
-	margin: 0;
+	margin: 0 1rem;
 }
 .output h2 {
 	text-align: right;
@@ -60,7 +66,7 @@ body {
 }
 .expression {
 	overflow: auto;
-	margin: 0;
+	margin: 0 1rem;
 }
 .expression p {
 	text-align: right;
@@ -69,7 +75,7 @@ body {
 .functions {
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-evenly;
+	max-width: 256px;
 }
 
 .link-list-container {
@@ -113,8 +119,11 @@ body {
 	align-items: center;
 	font-size: large;
 	border: none;
-	background-color: var(--dark);
+	background-color: var(--light-dark);
 	color: var(--light);
+	padding: 0;
+	width: 4rem;
+	height: 4rem;
 }
 .btn-select-calculator:hover {
 	background-color: rgba(20, 20, 20, 0.3);
@@ -125,8 +134,11 @@ body {
 }
 .select-calculator-menu {
 	display: flex;
+	align-items: center;
 	justify-content: space-evenly;
-	margin-bottom: 1rem;
+}
+#ctrl-c {
+	justify-self: start;
 }
 @media (max-height: 590px) {
 	.functions {
@@ -136,6 +148,10 @@ body {
 }
 @media (max-height: 800px) {
 	.btn {
+		width: 4rem;
+		height: 2.5rem;
+	}
+	.btn-select-calculator {
 		width: 4rem;
 		height: 2.5rem;
 	}

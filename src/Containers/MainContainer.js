@@ -5,9 +5,13 @@ import CalculatorSelectMenu from '../Components/CalculatorSelectMenu'
 import EventHandlers from '../Util/EventHandlers'
 import Helpers from '../Util/Helpers'
 import ScientificCalculator from './ScientificCalculator'
+import SinglePurposeButton from '../Components/SinglePurposeButton'
 const math = require('mathjs')
 const { addCommas } = Helpers()
-const { HandleScientificCalculatorSelect } = EventHandlers()
+const {
+	HandleScientificCalculatorSelect,
+	HandleCopyToClipboardClick,
+} = EventHandlers()
 
 export default function MainContainer() {
 	let [output, setOutput] = useState('0')
@@ -32,17 +36,32 @@ export default function MainContainer() {
 	return (
 		<div className="main-container">
 			<h1 className="app-title">Calculator App</h1>
-			<CalculatorSelectMenu
-				value={{
-					handlers: {
-						selectScientific: HandleScientificCalculatorSelect,
-					},
-					params: {
-						isScientificOn: isScientificOn,
-						setIsScientificOn: setIsScientificOn,
-					},
-				}}
-			/>
+			<div className="util-button-container">
+				<SinglePurposeButton
+					key="ctrl-c"
+					id="ctrl-c"
+					value={{
+						function: HandleCopyToClipboardClick,
+						params: {
+							output: output,
+						},
+						name: <i class="fas fa-clipboard"></i>,
+						classes: ['btn'],
+					}}
+				/>
+
+				<CalculatorSelectMenu
+					value={{
+						handlers: {
+							selectScientific: HandleScientificCalculatorSelect,
+						},
+						params: {
+							isScientificOn: isScientificOn,
+							setIsScientificOn: setIsScientificOn,
+						},
+					}}
+				/>
+			</div>
 			<div>
 				<Display
 					value={{
