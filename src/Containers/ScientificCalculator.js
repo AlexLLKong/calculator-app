@@ -9,7 +9,7 @@ export default function ScientificCalculator(props) {
 				function: HandleFunctionClick,
 				functionNames: ['sin', 'cos', 'tan'],
 				params: { ...props.value },
-				classes: ['operators'],
+				classes: ['functions'],
 			}}
 		/>
 	)

@@ -11,7 +11,7 @@ export default function Display(props) {
 			/>
 			<Output
 				value={{
-					outputString: props.value.outputString,
+					output: props.value.output,
 				}}
 			/>
 		</div>

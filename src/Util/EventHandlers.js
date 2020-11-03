@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import Helpers from './Helpers'
-const { isCurrentNumDecimal } = Helpers()
+const math = require('mathjs')
+const { isCurrentNumDecimal, removeCommas } = Helpers()
 const ops = ['*', '/', '+', '-']
 
 export default function EventHandlers() {
@@ -63,6 +64,21 @@ export default function EventHandlers() {
 				: [...expression, `${functionSyntax}(`]
 		)
 	}
+	const HandleEqualsClick = ({
+		expression,
+		setExpression,
+		output,
+		setOutput,
+	}) => {
+		setExpression(
+			(expression = () => {
+				let newExpression = []
+				newExpression.push(removeCommas(output))
+				return newExpression
+			})
+		)
+		setOutput('0')
+	}
 	return {
 		HandleNumpadButtonClick,
 		HandleDecimalClick,
@@ -72,5 +88,6 @@ export default function EventHandlers() {
 		HandleScientificCalculatorSelect,
 		HandleNoRulesCharacterClick,
 		HandleFunctionClick,
+		HandleEqualsClick,
 	}
 }

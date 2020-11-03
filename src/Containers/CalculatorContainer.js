@@ -1,6 +1,5 @@
 import React from 'react'
 import Numpad from '../Components/Numpad'
-import Operators from '../Components/Operators'
 import EventHandlers from '../Util/EventHandlers'
 
 const {
@@ -10,22 +9,12 @@ const {
 	HandleClearButtonClick,
 	HandleBackspaceClick,
 	HandleNoRulesCharacterClick,
+	HandleEqualsClick,
 } = EventHandlers()
 
 export default function CalculatorContainer(props) {
 	return (
 		<div className="calculator-container">
-			<Operators
-				value={{
-					handlers: {
-						operatorClick: HandleOperatorClick,
-					},
-					params: {
-						expression: props.value.expression,
-						setExpression: props.value.setExpression,
-					},
-				}}
-			/>
 			<Numpad
 				value={{
 					handlers: {
@@ -34,6 +23,8 @@ export default function CalculatorContainer(props) {
 						decimalClick: HandleDecimalClick,
 						backspaceClick: HandleBackspaceClick,
 						noRulesClick: HandleNoRulesCharacterClick,
+						operatorClick: HandleOperatorClick,
+						equalsClick: HandleEqualsClick,
 					},
 					params: {
 						expression: props.value.expression,

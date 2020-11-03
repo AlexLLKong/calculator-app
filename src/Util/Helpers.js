@@ -10,9 +10,9 @@ export default function Helpers() {
 		return false
 	}
 
-	function addCommas(nStr) {
-		nStr += ''
-		var x = nStr.split('.')
+	function addCommas(str) {
+		str += ''
+		var x = str.split('.')
 		var x1 = x[0]
 		var x2 = x.length > 1 ? '.' + x[1] : ''
 		var rgx = /(\d+)(\d{3})/
@@ -21,8 +21,15 @@ export default function Helpers() {
 		}
 		return x1 + x2
 	}
+
+	function removeCommas(str) {
+		let ret = str.replace(/,/g, '')
+		console.log(ret)
+		return ret
+	}
 	return {
 		isCurrentNumDecimal,
 		addCommas,
+		removeCommas,
 	}
 }
