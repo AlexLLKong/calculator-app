@@ -47,7 +47,6 @@ body {
 	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 	grid-template-rows: 1fr 1fr 1fr 1fr;
-	margin-bottom: 1rem;
 }
 
 .display {
@@ -99,6 +98,7 @@ body {
 	justify-content: center;
 	align-items: center;
 	font-size: large;
+	font-weight: bold;
 	border: none;
 	background-color: var(--light-dark);
 	color: var(--light);
