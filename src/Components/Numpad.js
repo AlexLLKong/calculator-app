@@ -18,6 +18,8 @@ function generateNumpadDigits(props) {
 					value={{
 						function: props.value.handlers.operatorClick,
 						params: { ...props.value.params, op: digits[i] },
+						keymap: `${digits[i]}`,
+						id: `${digits[i]}`,
 						name: opDictionary[digits[i]],
 						classes: [...props.value.classes],
 					}}
@@ -30,6 +32,8 @@ function generateNumpadDigits(props) {
 					value={{
 						function: props.value.handlers.numpadClick,
 						params: { ...props.value.params, value: digits[i] },
+						keymap: `${digits[i]}`,
+						id: `${digits[i]}`,
 						name: digits[i],
 						classes: [...props.value.classes],
 					}}
@@ -45,6 +49,8 @@ function generateNumpadDigits(props) {
 				function: props.value.handlers.noRulesClick,
 				params: { ...props.value.params, char: '(' },
 				name: '(',
+				id: '(',
+				keymap: '(',
 				classes: [...props.value.classes],
 			}}
 		/>
@@ -56,6 +62,8 @@ function generateNumpadDigits(props) {
 				function: props.value.handlers.numpadClick,
 				params: { ...props.value.params, value: '0' },
 				name: '0',
+				id: '0',
+				keymap: '0',
 				classes: [...props.value.classes],
 			}}
 		/>
@@ -67,6 +75,8 @@ function generateNumpadDigits(props) {
 				function: props.value.handlers.closeBracketClick,
 				params: { ...props.value.params, char: ')' },
 				name: ')',
+				id: ')',
+				keymap: ')',
 				classes: [...props.value.classes],
 			}}
 		/>
@@ -78,6 +88,8 @@ function generateNumpadDigits(props) {
 				function: props.value.handlers.operatorClick,
 				params: { ...props.value.params, op: '-' },
 				name: opDictionary['-'],
+				id: '-',
+				keymap: '-',
 				classes: [...props.value.classes],
 			}}
 		/>
@@ -100,6 +112,8 @@ function generateNumpadDigits(props) {
 				function: props.value.handlers.backspaceClick,
 				params: { ...props.value.params },
 				name: <i className="fas fa-backspace"></i>,
+				id: 'Backspace',
+				keymap: 'Backspace',
 				classes: [...props.value.classes],
 			}}
 		/>
@@ -111,6 +125,8 @@ function generateNumpadDigits(props) {
 				function: props.value.handlers.decimalClick,
 				params: { ...props.value.params },
 				name: '.',
+				id: '.',
+				keymap: '.',
 				classes: [...props.value.classes],
 			}}
 		/>
@@ -122,6 +138,8 @@ function generateNumpadDigits(props) {
 				function: props.value.handlers.equalsClick,
 				params: { ...props.value.params },
 				name: '=',
+				id: 'Enter',
+				keymap: 'Enter',
 				classes: [...props.value.classes],
 			}}
 		/>

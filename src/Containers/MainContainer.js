@@ -45,7 +45,7 @@ export default function MainContainer() {
 						params: {
 							output: output,
 						},
-						name: <i class="fas fa-clipboard"></i>,
+						name: <i className="fas fa-clipboard"></i>,
 						classes: ['btn'],
 					}}
 				/>

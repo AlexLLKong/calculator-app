@@ -137,9 +137,7 @@ body {
 	align-items: center;
 	justify-content: space-evenly;
 }
-#ctrl-c {
-	justify-self: start;
-}
+
 @media (max-height: 590px) {
 	.functions {
 		max-height: 40px;
