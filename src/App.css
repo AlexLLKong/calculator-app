@@ -125,13 +125,17 @@ body {
 	width: 4rem;
 	height: 4rem;
 }
-.btn-select-calculator:hover {
-	background-color: rgba(20, 20, 20, 0.3);
-}
-.btn-select-calculator:active {
+.btn-select-calculator-toggled {
 	background-color: var(--light);
 	color: var(--dark);
 }
+.btn-select-calculator:hover {
+	background-color: rgba(20, 20, 20, 0.3);
+}
+.btn-select-calculator-toggled:hover {
+	background-color: rgba(179, 179, 179, 0.3);
+}
+
 .select-calculator-menu {
 	display: flex;
 	align-items: center;

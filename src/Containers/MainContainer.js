@@ -8,10 +8,7 @@ import ScientificCalculator from './ScientificCalculator'
 import SinglePurposeButton from '../Components/SinglePurposeButton'
 const math = require('mathjs')
 const { addCommas } = Helpers()
-const {
-	HandleScientificCalculatorSelect,
-	HandleCopyToClipboardClick,
-} = EventHandlers()
+const { HandleCalculatorSelect, HandleCopyToClipboardClick } = EventHandlers()
 
 export default function MainContainer() {
 	let [output, setOutput] = useState('0')
@@ -53,7 +50,7 @@ export default function MainContainer() {
 				<CalculatorSelectMenu
 					value={{
 						handlers: {
-							selectScientific: HandleScientificCalculatorSelect,
+							selectCalculator: HandleCalculatorSelect,
 						},
 						params: {
 							isScientificOn: isScientificOn,

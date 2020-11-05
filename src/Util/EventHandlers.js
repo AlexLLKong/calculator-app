@@ -54,11 +54,8 @@ export default function EventHandlers() {
 			setExpression(['0'])
 		}
 	}
-	const HandleScientificCalculatorSelect = ({
-		isScientificOn,
-		setIsScientificOn,
-	}) => {
-		setIsScientificOn((isScientificOn = !isScientificOn))
+	const HandleCalculatorSelect = ({ isCalculatorOn, setIsCalculatorOn }) => {
+		setIsCalculatorOn((isCalculatorOn = !isCalculatorOn))
 	}
 	const HandleNoRulesCharacterClick = ({
 		expression,
@@ -115,7 +112,7 @@ export default function EventHandlers() {
 		HandleOperatorClick,
 		HandleClearButtonClick,
 		HandleBackspaceClick,
-		HandleScientificCalculatorSelect,
+		HandleCalculatorSelect,
 		HandleNoRulesCharacterClick,
 		HandleFunctionClick,
 		HandleEqualsClick,

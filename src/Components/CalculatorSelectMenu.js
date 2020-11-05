@@ -6,9 +6,12 @@ export default function CalculatorSelectMenu(props) {
 		<div className="select-calculator-menu">
 			<CalculatorButton
 				value={{
-					handler: props.value.handlers.selectScientific,
+					handler: props.value.handlers.selectCalculator,
 					name: 'Trig',
-					params: { ...props.value.params },
+					params: {
+						isCalculatorOn: props.value.params.isScientificOn,
+						setIsCalculatorOn: props.value.params.setIsScientificOn,
+					},
 				}}
 			/>
 		</div>
